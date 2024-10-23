@@ -1,25 +1,22 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "探索者的笔记本"
+  text: "Hzih.Huang 知识指南"
+  tagline: 寻找知识的边界，记录成长的光辉
+  image:
+    src: https://avatars.githubusercontent.com/u/61496900?s=400&u=c541d90c86d5c56d47591d3efaf5c39d1f5e7dfa&v=4
+    alt: VitePress
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 组件库
+      link: https://hzihhuang-site.github.io/h-design
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 旧博客
+      link: https://hzihhuang-site.github.io/h-blog
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 站点提要
+    details: 博客正在逐步从旧版迁移中，旧版博客地址：https://hzihhuang-site.github.io/h-blog。
 ---
-
