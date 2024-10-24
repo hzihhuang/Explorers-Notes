@@ -2,6 +2,7 @@
 import { useData } from 'vitepress'
 const { theme } = useData()
 const { visitor } = theme.value
+
 const show = import.meta.env.MODE !== "development"
 </script>
 
