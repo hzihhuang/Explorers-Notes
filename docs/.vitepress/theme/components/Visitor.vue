@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
+import { IS_DEV } from '../common';
 const { theme } = useData()
 const { visitor } = theme.value
-
-const show = import.meta.env.MODE !== "development"
 </script>
 
 <template>
@@ -11,7 +10,7 @@ const show = import.meta.env.MODE !== "development"
     class="visitor"
     :src="`https://visitor-badge.laobi.icu/badge?page_id=${visitor.badgeId}`"
     onerror="this.style.display='none'"
-    v-if="show"
+    v-if="!IS_DEV"
   />
 </template>
 

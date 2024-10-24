@@ -1,3 +1,19 @@
+
+/**
+ * 按钮
+ */
+ :root {
+  --vp-button-brand-border: var(--vp-c-brand-light);
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: var(--vp-c-brand-1);
+  --vp-button-brand-hover-border: var(--vp-c-brand-light);
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-light);
+  --vp-button-brand-active-border: var(--vp-c-brand-light);
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-button-brand-bg);
+}
+
 /*
 *   首页 ｜ HOME
 */
@@ -57,6 +73,6 @@ html {
   }
 
   &.dark body {
-    --line-color: rgba(255, 255, 255, .043);
+    --line-color: rgba(255, 255, 255, .045);
   }
 }
