@@ -27,7 +27,7 @@ export default defineConfig({
 
     // @ts-ignore
     visitor: {
-      badgeId: 'hzihhuang',
+      badgeId: 'hzihhuang_dev',
     },
   },
 });
