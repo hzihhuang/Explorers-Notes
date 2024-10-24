@@ -2,7 +2,8 @@
 import DefaultTheme from 'vitepress/theme';
 import Visitor from './Visitor.vue';
 import { useData } from 'vitepress';
-import { nextTick, provide } from 'vue';
+import { provide } from 'vue';
+import Gitalk from './Gitalk.vue';
 
 const { Layout } = DefaultTheme;
 const { isDark } = useData()
@@ -42,6 +43,9 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     <Layout v-bind="$attrs">
         <template #nav-bar-title-after>
             <Visitor />
+        </template>
+        <template #home-hero-info>
+            <Gitalk />
         </template>
     </Layout>
 </template>
