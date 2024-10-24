@@ -5,6 +5,9 @@ export default defineConfig({
   description: "",
   
   base: "/Explorers-Notes",
+  head: [
+    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+  ],
   themeConfig: {
     logo: "https://avatars.githubusercontent.com/u/171891773?v=4",
     siteTitle: "探索者的笔记本",
