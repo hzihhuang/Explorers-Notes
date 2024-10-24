@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: 旧博客
       link: https://hzihhuang-site.github.io/h-blog
+    - theme: brand
+      text: 工具箱
+      link: https://hzihhuang-site.github.io/h-tools
 
 features:
   - title: 站点提要
