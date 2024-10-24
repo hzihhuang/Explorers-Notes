@@ -1,13 +1,28 @@
 /*
-*
 *   首页 ｜ HOME
-* 
 */
 :root {
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient( 120deg, #35495e -80%, #4a8dea );
-  --vp-home-hero-image-background-image: linear-gradient( -45deg, #4a8dea 30%, #35495e80 );
-  --vp-home-hero-image-filter: blur(100px)
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    var(--vp-c-brand-1) 30%,
+    var(--vp-c-brand-next)
+  );
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    var(--vp-c-brand-1) 30%,
+    var(--vp-c-brand-next)
+  );
+  --vp-home-hero-image-filter: blur(80px);
+}
+/* Safari在渐变和滤镜方面的性能非常差 */
+.browser-safari,
+.browser-firefox {
+  --vp-home-hero-image-background-image: transparent;
+  --vp-home-hero-image-filter: '';
+}
+.VPImage {
+  border-radius: 50%;
 }
 html {
   body {
@@ -35,9 +50,6 @@ html {
     transition: background .2s;
   }
   &.dark body {
-    --line-color: rgba(255,255,255,.04);
+    --line-color: rgba(255,255,255,.043);
   }
-}
-.VPImage {
-  border-radius: 50%;
 }
