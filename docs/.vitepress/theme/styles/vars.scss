@@ -3,53 +3,60 @@
 */
 :root {
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(
-    120deg,
-    var(--vp-c-brand-1) 30%,
-    var(--vp-c-brand-next)
-  );
-  --vp-home-hero-image-background-image: linear-gradient(
-    -45deg,
-    var(--vp-c-brand-1) 30%,
-    var(--vp-c-brand-next)
-  );
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
+      var(--vp-c-brand-1) 30%,
+      var(--vp-c-brand-next));
+  --vp-home-hero-image-background-image: linear-gradient(-45deg,
+      var(--vp-c-brand-1) 30%,
+      var(--vp-c-brand-next));
   --vp-home-hero-image-filter: blur(80px);
 }
+
 /* Safari在渐变和滤镜方面的性能非常差 */
 .browser-safari,
 .browser-firefox {
   --vp-home-hero-image-background-image: transparent;
   --vp-home-hero-image-filter: '';
 }
+
 .VPImage {
   border-radius: 50%;
 }
+
+// 主题切换按钮
+.VPSwitch.VPSwitchAppearance {
+  width: 22px;
+  .dark & .check {
+    transform: unset
+  }
+}
+
 html {
   body {
-    --line-color: rgba(0,0,0,.025);
-    background: radial-gradient(
-      farthest-side at -33.33% 50%,
-      transparent 52%,
-      var(--line-color) 54%,
-      var(--line-color) 57%,transparent 59%) 0 50px,
-      radial-gradient(farthest-side at 50% 133.33%,transparent 52%,
-      var(--line-color) 54%,
-      var(--line-color) 57%,
-      transparent 59%) 50px 0,
+    --line-color: rgba(0, 0, 0, .025);
+    background: radial-gradient(farthest-side at -33.33% 50%,
+        transparent 52%,
+        var(--line-color) 54%,
+        var(--line-color) 57%, transparent 59%) 0 50px,
+      radial-gradient(farthest-side at 50% 133.33%, transparent 52%,
+        var(--line-color) 54%,
+        var(--line-color) 57%,
+        transparent 59%) 50px 0,
       radial-gradient(farthest-side at 133.33% 50%,
-      transparent 52%,
-      var(--line-color) 54%,
-      var(--line-color) 57%,
-      transparent 59%),
-      radial-gradient(farthest-side at 50% -33.33%,transparent 52%,
-      var(--line-color) 54%,
-      var(--line-color) 57%,
-      transparent 59%),
+        transparent 52%,
+        var(--line-color) 54%,
+        var(--line-color) 57%,
+        transparent 59%),
+      radial-gradient(farthest-side at 50% -33.33%, transparent 52%,
+        var(--line-color) 54%,
+        var(--line-color) 57%,
+        transparent 59%),
       transparent;
-    background-size: 21.4270409256px 100px,100px 21.4270409256px;
+    background-size: 21.4270409256px 100px, 100px 21.4270409256px;
     transition: background .2s;
   }
+
   &.dark body {
-    --line-color: rgba(255,255,255,.043);
+    --line-color: rgba(255, 255, 255, .043);
   }
 }
