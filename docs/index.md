@@ -6,7 +6,7 @@ hero:
   text: "Hzih.Huang 知识指南"
   tagline: 寻找知识的边界，记录成长的光辉
   image:
-    src: https://avatars.githubusercontent.com/u/61496900?s=400&u=c541d90c86d5c56d47591d3efaf5c39d1f5e7dfa&v=4
+    src: /logo.png
     alt: VitePress
   actions:
     - theme: brand
