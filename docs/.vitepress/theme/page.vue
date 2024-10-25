@@ -4,7 +4,6 @@ import Visitor from "./components/Visitor.vue";
 import { useData } from "vitepress";
 import { provide } from "vue";
 import Gitalk from "./components/Gitalk.vue";
-import DocFooter from "./components/DocFooter.vue";
 
 const { Layout } = DefaultTheme;
 const { isDark } = useData();

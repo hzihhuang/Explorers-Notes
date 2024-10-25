@@ -2,8 +2,8 @@
 <script setup lang="ts">
 import Gitalk from "gitalk";
 import "gitalk/dist/gitalk.css";
-import usePageId from "../utils/usePageId";
-import { computed, onMounted } from "vue";
+import usePageId from "../hooks/usePageId";
+import { onMounted } from "vue";
 
 const pageId = usePageId();
 
