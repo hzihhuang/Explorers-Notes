@@ -1,0 +1,20 @@
+/*
+*   ==================================
+*   此文件用于修复优化 rspress 中的样式问题
+*   ==================================
+*/
+
+
+// 社交 - 图片尺寸问题
+.social-links div.break-all {
+    width: 140px;
+    height: 140px;
+    img {
+        background-color: #ecedee;
+    }
+}
+
+//
+.rspress-doc-container .rspress-doc {
+    max-width: 100%;
+}

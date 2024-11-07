@@ -1,0 +1,43 @@
+html body {
+    .gt-container {
+        .gt-btn.gt-btn-preview {
+            border-color: var(--rp-c-bg-mute);
+            color: var(--rp-c-text-1);
+            background-color: var(--vp-button-alt-bg);
+        }
+        .gt-ico-github svg {
+            fill: var(--rp-c-text-1);
+            transition: fill .2s;
+        }
+        .gt-popup {
+            border-radius: 8px;
+            background-color: var(--rp-c-bg);
+            border: 1px solid var(--rp-c-bg-mute)
+        }
+        .gt-copyright,
+        .gt-meta {
+            border-color: var(--rp-c-bg-mute);
+        }
+        .gt-comment-content {
+            border-radius: 8px;
+            background-color: var(--rp-c-bg);
+            border: 1px solid var(--rp-c-bg-mute);
+            &:hover {
+                box-shadow: unset;
+            }
+        }
+        .gt-comment-body {
+            color: var(--rp-c-text-2) !important;
+        }
+        .gt-header-textarea {
+            border: 1px solid var(--rp-c-bg-mute);
+            background-color: var(--rp-c-bg);
+            &:hover {
+                background-color: var(--rp-home-feature-bg);
+            }
+        }
+        .gt-comment-admin .gt-comment-content{
+            background-color: var(--rp-home-feature-bg);
+        }
+    }
+}
