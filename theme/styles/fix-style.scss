@@ -17,10 +17,3 @@
 .rspress-doc-container .rspress-doc {
     max-width: 100%;
 }
-
-// tailwind 被压过去了问题
-@media (min-width: 768px) {
-    .md\:flex-row {
-        flex-direction: row;
-    }
-}
