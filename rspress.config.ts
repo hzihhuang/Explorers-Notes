@@ -42,7 +42,7 @@ export default defineConfig({
 
   root: path.join(__dirname, "docs"),
   outDir: "dist",
-  base: "/RsPress",
+  base: "/Explorers-Notes",
   builderConfig: {
     source: {
       alias: {
