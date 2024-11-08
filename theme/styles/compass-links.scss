@@ -1,0 +1,23 @@
+/*
+*   ==================================
+*   网海指南针页面样式
+*   ==================================
+*/
+
+html body section:has(.compass-links) {
+  .rspress-doc-container {
+    .rspress-doc {
+      max-width: 100%;
+    }
+  }
+
+  // 小于 1440px
+  @media (max-width: 1640px) {
+    .rspress-doc-container {
+      width: 100%;
+      .rspress-doc {
+        width: 100%;
+      }
+    }
+  }
+}

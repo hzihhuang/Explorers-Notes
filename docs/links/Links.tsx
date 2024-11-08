@@ -14,7 +14,7 @@ const Links = ({ list }: { list: ItemsType[] }) => {
           className="w-12 h-12 p-2 rounded-md shrink-0"
           style={{ backgroundColor: "var(--rp-c-bg-mute" }}
         >
-          <img className="w-full h-full object-scale-down" src={icon} alt="" />
+          <img className="w-full h-full" src={icon} style={{ objectFit: 'scale-down' }} />
         </div>
       );
     }
@@ -22,7 +22,7 @@ const Links = ({ list }: { list: ItemsType[] }) => {
   };
   return (
     <div
-      className="grid gap-4"
+      className="grid gap-4 compass-links"
       style={{ gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr)) " }}
     >
       {list.map((i, idx) => (
