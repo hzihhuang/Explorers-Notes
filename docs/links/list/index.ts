@@ -5,6 +5,8 @@ import ReactST from "./react";
 import CSS from "./CSS";
 import CrossPlatform from "./CrossPlatform";
 import buildTools from "./buildTools";
+import Node from "./Node";
+import Visualization from "./Visualization";
 
 export type ItemsType = {
   icon?: ReactNode;
@@ -18,6 +20,8 @@ export default {
   ReactST,
   VueST,
   CSS,
+  Node,
   CrossPlatform,
   buildTools,
+  Visualization,
 };

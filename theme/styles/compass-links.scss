@@ -5,10 +5,12 @@
 */
 
 html body section:has(.compass-links) {
-  .rspress-doc-container {
-    .rspress-doc {
-      max-width: 100%;
-    }
+  .rspress-doc-container .rspress-doc {
+    max-width: 100%;
+  }
+
+  .aside-link {
+      border-radius: var(--rp-radius-small);
   }
 
   // 小于 1440px
@@ -18,6 +20,9 @@ html body section:has(.compass-links) {
       .rspress-doc {
         width: 100%;
       }
+    }
+    .aside-link {
+      border-radius: var(--rp-radius-small) 0 0 var(--rp-radius-small);
     }
   }
 }
