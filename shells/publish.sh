@@ -9,7 +9,7 @@ LOCAL_BRANCH_NAME="gh-pages"
 REMOTE_ALIAS="site"
 
 # 设置远程仓库地址
-REMOTE_REPO_URL="https://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@github.com/hzihhuang-site/Explorers-Notes.git"
+REMOTE_REPO_URL="https://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@github.com/hzihhuang-site/Explorers-Notes.git"
 
 # 添加远程仓库
 if git remote | grep -q $REMOTE_ALIAS; then

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "rspress dev",
     "build": "rspress build",
-    "docs:publish": "rspress build && gh-pages -d dist",
+    "docs:publish": "rspress build && gh-pages -d dist && ./shells/publish.sh",
     "preview": "rspress preview"
   },
   "dependencies": {
