@@ -15,14 +15,14 @@ REMOTE_REPO_URL="https://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@github.com/hzi
 if git remote | grep -q $REMOTE_ALIAS; then
     echo "远程仓库已存在，执行下一步..."
 else
-    git remote add --force $REMOTE_ALIAS $REMOTE_REPO_URL
+    git remote add $REMOTE_ALIAS $REMOTE_REPO_URL
     echo "成功添加远程仓库..."
 fi
 
 # 获取最新代码
 git pull
 # 推送制定发展到远程仓库分支
-git push $REMOTE_ALIAS $REMOTE_BRANCH_NAME:$LOCAL_BRANCH_NAME
+git push --force $REMOTE_ALIAS $REMOTE_BRANCH_NAME:$LOCAL_BRANCH_NAME
 
 # 检查推送是否成功
 if [ $? -eq 0 ]; then
