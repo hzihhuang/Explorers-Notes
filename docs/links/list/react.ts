@@ -44,6 +44,12 @@ const ReactST: ItemsType[] = [
     icon: "https://nextjs.org/static/favicon/safari-pinned-tab.svg",
   },
   {
+    title: "Material-UI",
+    desc: "React UI 组件库",
+    link: "https://material-ui.com/",
+    icon: "https://material-ui.com/static/favicon.ico",
+  },
+  {
     title: "Ant Design",
     desc: "React UI 组件库",
     link: "https://ant.design/",
