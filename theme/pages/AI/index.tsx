@@ -7,7 +7,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { FloatButton, Flex, Modal, Divider } from "antd";
-import { useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   Bubble,
   Conversations,
@@ -16,48 +16,49 @@ import {
   Suggestion,
   Welcome,
   XProvider,
+  useXAgent,
 } from "@ant-design/x";
-import HistoricalDialogue from "./HistoricalDialogue";
 import { BubbleDataType } from "@ant-design/x/es/bubble/BubbleList";
 import { Conversation } from "@ant-design/x/es/conversations";
 
 const AI = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
+  const [agent] = useXAgent<BubbleDataType>({
+    baseURL: "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+    model: "glm-4-flash",
+    dangerouslyApiKey: "447dc00d0b5ff3cd3eaeecadb2a25101.Yp2lbQgE1Am5lH7j",
+  });
 
+  const request = (bubbleData: BubbleDataType[]) => {
+    const newBubbleData = JSON.parse(
+      JSON.stringify(bubbleData)
+    ) as BubbleDataType[];
+    agent.request(
+      {
+        messages: bubbleData,
+        stream: true,
+      },
+      {
+        // 成功回调
+        onSuccess: (sseChunks) => {},
+        onError: (error) => {},
+        onUpdate: (sse: any) => {
+          try {
+            const data = JSON.parse(sse.data);
+            const message = data.choices[0].delta.content;
+            newBubbleData[newBubbleData.length - 1].loading = false;
+            newBubbleData[newBubbleData.length - 1].content += message;
+
+            setBubbleData(JSON.parse(JSON.stringify(newBubbleData)));
+          } catch (error) {}
+        },
+      }
+    );
+  };
   // 对话内容
-  const bubbleData: BubbleDataType[] = [
-    {
-      key: "1",
-      placement: "end",
-      content: "你好 Ant Design X",
-      avatar: { icon: <UserOutlined /> },
-    },
-    {
-      key: "2",
-      content: "hi～",
-    },
-    {
-      key: "2",
-      content: "",
-      loading: true,
-    },
-  ];
+  const [bubbleData, setBubbleData] = useState<BubbleDataType[]>([]);
 
-  // 历史对话
-  const conversation: Conversation[] = [
-    {
-      key: "1",
-      label: "历史一",
-      icon: <GithubOutlined />,
-    },
-    {
-      key: "2",
-      label: "历史二",
-      icon: <AlipayCircleOutlined />,
-    },
-  ];
-  const [conversationKey, setConversationKey] = useState(conversation[0].key);
   return (
     <>
       <FloatButton
@@ -78,7 +79,18 @@ const AI = () => {
             <Conversations
               style={{ width: 200 }}
               defaultActiveKey="1"
-              items={conversation}
+              items={[
+                {
+                  key: "1",
+                  label: "历史一",
+                  icon: <GithubOutlined />,
+                },
+                {
+                  key: "2",
+                  label: "历史二",
+                  icon: <AlipayCircleOutlined />,
+                },
+              ]}
             />
             <Divider type="vertical" style={{ height: "100%" }} />
             <Flex vertical style={{ flex: 1 }} gap={8}>
@@ -93,6 +105,7 @@ const AI = () => {
               )}
               {/* 提示词 */}
               <Prompts
+                style={{ marginTop: "auto" }}
                 items={[
                   {
                     key: "1",
@@ -106,22 +119,30 @@ const AI = () => {
                   },
                 ]}
               />
-              <Suggestion
-                items={[{ label: "Write a report", value: "report" }]}
-              >
+              <Suggestion items={[]}>
                 {({ onTrigger, onKeyDown }) => {
                   return (
                     <Sender
                       value={value}
-                      onChange={(nextVal) => {
-                        if (nextVal === "/") {
-                          onTrigger();
-                        } else if (!nextVal) {
-                          onTrigger(false);
-                        }
-                        setValue(nextVal);
+                      onChange={setValue}
+                      onSubmit={(v) => {
+                        setValue("");
+                        const newBubbleData: BubbleDataType[] = [
+                          ...bubbleData,
+                          {
+                            role: "user",
+                            content: v,
+                            placement: "end",
+                          },
+                          {
+                            role: "assistant",
+                            loading: true,
+                            content: "",
+                          },
+                        ];
+                        setBubbleData(newBubbleData);
+                        request(newBubbleData);
                       }}
-                      onKeyDown={onKeyDown}
                       placeholder="请输入您的问题"
                     />
                   );
