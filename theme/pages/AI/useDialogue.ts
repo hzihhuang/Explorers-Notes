@@ -1,0 +1,64 @@
+import { useCallback, useRef, useState } from "react";
+import { useXAgent } from "@ant-design/x";
+import { BubbleDataType } from "@ant-design/x/es/bubble/BubbleList";
+
+
+const useDialogue = () => {
+  const [bubbleData, setBubbleData] = useState<BubbleDataType[]>([]);
+  const [agent] = useXAgent<BubbleDataType>({
+    baseURL: "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+    model: "glm-4-flash",
+    dangerouslyApiKey: "447dc00d0b5ff3cd3eaeecadb2a25101.Yp2lbQgE1Am5lH7j",
+  });
+
+  const newBubbleData = useRef<BubbleDataType[]>(bubbleData);
+  const requestDialogue = useCallback((content: string) => {
+    newBubbleData.current = JSON.parse(JSON.stringify([
+      ...newBubbleData.current,
+      {
+        role: "user",
+        placement: "end",
+        content,
+      },
+      {
+        role: "assistant",
+        loading: true,
+        content: "",
+      },
+    ])) as BubbleDataType[];
+    setBubbleData(newBubbleData.current);
+    agent.request(
+      {
+        messages: newBubbleData.current,
+        stream: true,
+      },
+      {
+        // 成功回调
+        onSuccess: (sseChunks) => {
+        },
+        onError: (error) => {},
+        onUpdate: (sse: any) => {
+          try {
+            const data = JSON.parse(sse.data).choices[0];
+            if (data.finish_reason === 'stop') return;
+            const message = data.delta.content;
+            console.log(data);
+            newBubbleData.current[newBubbleData.current.length - 1].loading = false;
+            newBubbleData.current[newBubbleData.current.length - 1].content += message;
+            setBubbleData(JSON.parse(JSON.stringify(newBubbleData.current)));
+          } catch (error) {}
+        },
+      }
+    );
+  }, []);
+
+
+
+
+  return {
+    bubbleData,
+    requestDialogue,
+  }
+};
+
+export default useDialogue;

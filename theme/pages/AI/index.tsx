@@ -4,60 +4,35 @@ import {
   GithubOutlined,
   OpenAIOutlined,
   SmileOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
-import { FloatButton, Flex, Modal, Divider } from "antd";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { FloatButton, Flex, Modal, Divider, Typography } from "antd";
+import { useState } from "react";
 import {
   Bubble,
+  BubbleProps,
   Conversations,
   Prompts,
   Sender,
   Suggestion,
   Welcome,
   XProvider,
-  useXAgent,
 } from "@ant-design/x";
-import { BubbleDataType } from "@ant-design/x/es/bubble/BubbleList";
-import { Conversation } from "@ant-design/x/es/conversations";
+import markdownit from "markdown-it";
+import useDialogue from "./useDialogue";
+
+const md = markdownit({ html: true, breaks: true });
+const renderMarkdown: BubbleProps["messageRender"] = (content) => (
+  <Typography>
+    <div dangerouslySetInnerHTML={{ __html: md.render(content.trim()) }} />
+  </Typography>
+);
 
 const AI = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
-  const [agent] = useXAgent<BubbleDataType>({
-    baseURL: "https://open.bigmodel.cn/api/paas/v4/chat/completions",
-    model: "glm-4-flash",
-    dangerouslyApiKey: "447dc00d0b5ff3cd3eaeecadb2a25101.Yp2lbQgE1Am5lH7j",
-  });
 
-  const request = (bubbleData: BubbleDataType[]) => {
-    const newBubbleData = JSON.parse(
-      JSON.stringify(bubbleData)
-    ) as BubbleDataType[];
-    agent.request(
-      {
-        messages: bubbleData,
-        stream: true,
-      },
-      {
-        // 成功回调
-        onSuccess: (sseChunks) => {},
-        onError: (error) => {},
-        onUpdate: (sse: any) => {
-          try {
-            const data = JSON.parse(sse.data);
-            const message = data.choices[0].delta.content;
-            newBubbleData[newBubbleData.length - 1].loading = false;
-            newBubbleData[newBubbleData.length - 1].content += message;
-
-            setBubbleData(JSON.parse(JSON.stringify(newBubbleData)));
-          } catch (error) {}
-        },
-      }
-    );
-  };
-  // 对话内容
-  const [bubbleData, setBubbleData] = useState<BubbleDataType[]>([]);
+  // 对话
+  const { bubbleData, requestDialogue } = useDialogue();
 
   return (
     <>
@@ -95,7 +70,16 @@ const AI = () => {
             <Divider type="vertical" style={{ height: "100%" }} />
             <Flex vertical style={{ flex: 1 }} gap={8}>
               {bubbleData.length > 0 ? (
-                <Bubble.List style={{ flex: 1 }} items={bubbleData} />
+                <Flex flex={1} gap="middle" vertical>
+                  {bubbleData.map((i, idx) => (
+                    <Bubble
+                      content={i.content}
+                      placement={i.role === "user" ? "end" : "start"}
+                      messageRender={renderMarkdown}
+                      key={idx}
+                    />
+                  ))}
+                </Flex>
               ) : (
                 <Welcome
                   icon="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*s5sNRo5LjfQAAAAAAAAAAAAADgCCAQ/fmt.webp"
@@ -125,23 +109,9 @@ const AI = () => {
                     <Sender
                       value={value}
                       onChange={setValue}
-                      onSubmit={(v) => {
+                      onSubmit={(content) => {
                         setValue("");
-                        const newBubbleData: BubbleDataType[] = [
-                          ...bubbleData,
-                          {
-                            role: "user",
-                            content: v,
-                            placement: "end",
-                          },
-                          {
-                            role: "assistant",
-                            loading: true,
-                            content: "",
-                          },
-                        ];
-                        setBubbleData(newBubbleData);
-                        request(newBubbleData);
+                        requestDialogue(content);
                       }}
                       placeholder="请输入您的问题"
                     />

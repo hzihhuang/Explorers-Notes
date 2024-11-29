@@ -13,11 +13,13 @@
     "@ant-design/x": "^1.0.0",
     "antd": "^5.22.2",
     "gitalk": "^1.8.0",
+    "markdown-it": "^14.1.0",
     "rspress": "^1.32.0",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@rsbuild/plugin-sass": "^1.1.0",
+    "@types/markdown-it": "^14.1.2",
     "@types/node": "^16",
     "@types/react": "^18.3.12",
     "gh-pages": "^6.2.0"
