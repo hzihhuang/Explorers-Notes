@@ -4,6 +4,7 @@ import {
   GithubOutlined,
   OpenAIOutlined,
   SmileOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import { FloatButton, Flex, Modal, Divider, Typography } from "antd";
 import { useState } from "react";
@@ -19,13 +20,19 @@ import {
 } from "@ant-design/x";
 import markdownit from "markdown-it";
 import useDialogue from "./useDialogue";
+import styled from "styled-components";
 
 const md = markdownit({ html: true, breaks: true });
 const renderMarkdown: BubbleProps["messageRender"] = (content) => (
   <Typography>
-    <div dangerouslySetInnerHTML={{ __html: md.render(content.trim()) }} />
+    <Box className="box" dangerouslySetInnerHTML={{ __html: md.render(content.trim()) }} />
   </Typography>
 );
+const Box = styled.div`
+  > p:last-child {
+    margin-bottom: 0px;
+  }
+`;
 
 const AI = () => {
   const [open, setOpen] = useState(false);
@@ -33,6 +40,9 @@ const AI = () => {
 
   // 对话
   const { bubbleData, requestDialogue } = useDialogue();
+
+  // 历史对话
+  
 
   return (
     <>
@@ -70,16 +80,21 @@ const AI = () => {
             <Divider type="vertical" style={{ height: "100%" }} />
             <Flex vertical style={{ flex: 1 }} gap={8}>
               {bubbleData.length > 0 ? (
-                <Flex flex={1} gap="middle" vertical>
-                  {bubbleData.map((i, idx) => (
-                    <Bubble
-                      content={i.content}
-                      placement={i.role === "user" ? "end" : "start"}
-                      messageRender={renderMarkdown}
-                      key={idx}
-                    />
-                  ))}
-                </Flex>
+                <Bubble.List
+                  style={{ flex: 1 }}
+                  items={bubbleData}
+                  roles={{
+                    user: {
+                      placement: "end",
+                      avatar: <UserOutlined />,
+                    },
+                    assistant: {
+                      placement: "start",
+                      messageRender: renderMarkdown,
+                      avatar: <OpenAIOutlined />,
+                    },
+                  }}
+                />
               ) : (
                 <Welcome
                   icon="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*s5sNRo5LjfQAAAAAAAAAAAAADgCCAQ/fmt.webp"
@@ -88,7 +103,7 @@ const AI = () => {
                 />
               )}
               {/* 提示词 */}
-              <Prompts
+              {/* <Prompts
                 style={{ marginTop: "auto" }}
                 items={[
                   {
@@ -102,7 +117,7 @@ const AI = () => {
                     label: "提示2",
                   },
                 ]}
-              />
+              /> */}
               <Suggestion items={[]}>
                 {({ onTrigger, onKeyDown }) => {
                   return (

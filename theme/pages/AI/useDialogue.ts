@@ -17,7 +17,6 @@ const useDialogue = () => {
       ...newBubbleData.current,
       {
         role: "user",
-        placement: "end",
         content,
       },
       {
@@ -42,7 +41,6 @@ const useDialogue = () => {
             const data = JSON.parse(sse.data).choices[0];
             if (data.finish_reason === 'stop') return;
             const message = data.delta.content;
-            console.log(data);
             newBubbleData.current[newBubbleData.current.length - 1].loading = false;
             newBubbleData.current[newBubbleData.current.length - 1].content += message;
             setBubbleData(JSON.parse(JSON.stringify(newBubbleData.current)));
