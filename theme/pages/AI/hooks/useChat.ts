@@ -2,8 +2,7 @@ import { useCallback, useRef, useState } from "react";
 import { useXAgent } from "@ant-design/x";
 import { BubbleDataType } from "@ant-design/x/es/bubble/BubbleList";
 
-
-const useDialogue = () => {
+const useChat = () => {
   const [bubbleData, setBubbleData] = useState<BubbleDataType[]>([]);
   const [agent] = useXAgent<BubbleDataType>({
     baseURL: "https://open.bigmodel.cn/api/paas/v4/chat/completions",
@@ -13,18 +12,20 @@ const useDialogue = () => {
 
   const newBubbleData = useRef<BubbleDataType[]>(bubbleData);
   const requestDialogue = useCallback((content: string) => {
-    newBubbleData.current = JSON.parse(JSON.stringify([
-      ...newBubbleData.current,
-      {
-        role: "user",
-        content,
-      },
-      {
-        role: "assistant",
-        loading: true,
-        content: "",
-      },
-    ])) as BubbleDataType[];
+    newBubbleData.current = JSON.parse(
+      JSON.stringify([
+        ...newBubbleData.current,
+        {
+          role: "user",
+          content,
+        },
+        {
+          role: "assistant",
+          loading: true,
+          content: "",
+        },
+      ])
+    ) as BubbleDataType[];
     setBubbleData(newBubbleData.current);
     agent.request(
       {
@@ -33,16 +34,17 @@ const useDialogue = () => {
       },
       {
         // 成功回调
-        onSuccess: (sseChunks) => {
-        },
+        onSuccess: (sseChunks) => {},
         onError: (error) => {},
         onUpdate: (sse: any) => {
           try {
             const data = JSON.parse(sse.data).choices[0];
-            if (data.finish_reason === 'stop') return;
+            if (data.finish_reason === "stop") return;
             const message = data.delta.content;
-            newBubbleData.current[newBubbleData.current.length - 1].loading = false;
-            newBubbleData.current[newBubbleData.current.length - 1].content += message;
+            newBubbleData.current[newBubbleData.current.length - 1].loading =
+              false;
+            newBubbleData.current[newBubbleData.current.length - 1].content +=
+              message;
             setBubbleData(JSON.parse(JSON.stringify(newBubbleData.current)));
           } catch (error) {}
         },
@@ -50,13 +52,10 @@ const useDialogue = () => {
     );
   }, []);
 
-
-
-
   return {
     bubbleData,
     requestDialogue,
-  }
+  };
 };
 
-export default useDialogue;
+export default useChat;
