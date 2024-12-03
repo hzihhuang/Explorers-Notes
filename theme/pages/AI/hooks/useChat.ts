@@ -33,7 +33,7 @@ const useChat = () => {
           {
             role: "system",
             content:
-              "你是「http://localhost:3000/Explorers-Notes/frontEnd/html/svg.html」这个博客站点的小助手，这个站点主要是用于记录前后端技术探险学习等，你的任务是提供专业、准确、有洞察力的帮助。",
+              "你是「https://hzihhuang-site.github.io/Explorers-Notes/」这个博客站点的小助手，这个站点主要是用于记录前后端技术探险学习等，你的任务是提供专业、准确、有洞察力的帮助。",
           },
           ...newBubbleData.current,
         ],
