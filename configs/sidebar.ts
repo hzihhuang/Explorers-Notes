@@ -73,6 +73,7 @@ const sidebar: Sidebar = {
       collapsed: false,
       items: [
         { text: "TypeScript：一篇精通", link: "/frontEnd/typescript/base" },
+        { text: "装饰器", link: "/frontEnd/typescript/decorator" },
       ],
     },
     {
