@@ -9,20 +9,20 @@
     "preview": "rspress preview"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.5.1",
-    "@ant-design/x": "^1.0.0",
-    "ahooks": "^3.8.1",
-    "antd": "^5.22.2",
+    "@ant-design/icons": "^5.5.2",
+    "@ant-design/x": "^1.0.4",
+    "ahooks": "^3.8.4",
+    "antd": "^5.22.6",
     "gitalk": "^1.8.0",
     "markdown-it": "^14.1.0",
-    "rspress": "^1.32.0",
+    "rspress": "^1.39.2",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
-    "@rsbuild/plugin-sass": "^1.1.0",
+    "@rsbuild/plugin-sass": "^1.1.2",
     "@types/markdown-it": "^14.1.2",
-    "@types/node": "^16",
-    "@types/react": "^18.3.12",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
     "gh-pages": "^6.2.0"
   }
 }
