@@ -3,9 +3,11 @@ import Gitalk from "./components/Gitalk";
 import Visitor from "./components/Visitor";
 
 const Layout = () => (
-  <Theme.Layout afterDocFooter={<Gitalk />} afterNavTitle={<Visitor />}
-  //  bottom={<AI />} 
-   />
+  <Theme.Layout
+    afterDocContent={<Gitalk />}
+    afterNavTitle={<Visitor />}
+    //  bottom={<AI />}
+  />
 );
 
 export default {
