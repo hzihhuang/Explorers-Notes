@@ -75,45 +75,18 @@ const nav: NavType = [
     items: [
       {
         text: "Node.js 开发宝典",
-        link: "/demo",
-        // items: [
-        //     {
-        //         text: '性能优化秘籍',
-        //         link: '/demo'
-        //     },
-        //     {
-        //         text: 'RESTful API 构建指南',
-        //         link: '/demo'
-        //     }
-        // ]
+        link: "/backEnd/node/performance",
+        activeMatch: "/backEnd/node",
       },
       {
         text: "框架匠心独运",
-        link: "/demo",
-        // items: [
-        //     {
-        //         text: "Express.js 高效开发",
-        //         link: '/demo'
-        //     },
-        //     {
-        //         text: "NestJS 高级应用",
-        //         link: '/demo'
-        //     },
-        // ]
+        link: "/backEnd/framework/express",
+        activeMatch: "/backEnd/framework",
       },
       {
         text: "数据库精通之路",
-        link: "/demo",
-        // items: [
-        //     {
-        //         text: 'MySQL 精粹',
-        //         link: '/demo'
-        //     },
-        //     {
-        //         text: 'MongoDB 深入浅出',
-        //         link: '/demo'
-        //     }
-        // ]
+        link: "/backEnd/database/mysql",
+        activeMatch: "/backEnd/database",
       },
     ],
   },
@@ -122,29 +95,20 @@ const nav: NavType = [
     items: [
       {
         text: "项目实战营",
-        link: "/demo",
+        link: "/template",
       },
       {
         text: "前后端分离架构精解",
-        link: "/demo",
+        link: "/template",
       },
       {
         text: "跨平台开发秘境",
-        link: "/demo",
-        // items: [
-        //     {
-        //         text: 'Electron 桌面应用探秘',
-        //         link: '/demo'
-        //     },
-        //     {
-        //         text: 'Flutter 移动开发攻略',
-        //         link: '/demo'
-        //     }
-        // ]
+        link: "/fullStack/crossPlatform/electron",
+        activeMatch: "/fullStack/crossPlatform",
       },
       {
         text: "服务端渲染与同构应用揭秘",
-        link: "/demo",
+        link: "/template",
       },
     ],
   },

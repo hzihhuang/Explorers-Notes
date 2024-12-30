@@ -85,6 +85,59 @@ const sidebar: Sidebar = {
       ],
     },
   ],
+  "/backEnd/": [
+    {
+      text: "Node.js 开发宝典",
+      collapsed: false,
+      items: [
+        { text: "性能优化秘籍", link: "/backEnd/node/performance" },
+        { text: "RESTful API 构建指南", link: "/backEnd/node/restful" },
+      ],
+    },
+    {
+      text: "框架匠心独运",
+      collapsed: false,
+      items: [
+        { text: "Express.js 高效开发", link: "/backEnd/framework/express" },
+        { text: "NestJS 高级应用", link: "/backEnd/framework/nestjs" },
+      ],
+    },
+    {
+      text: "数据库精通之路",
+      collapsed: false,
+      items: [
+        { text: "MySQL 精粹", link: "/backEnd/database/mysql" },
+        { text: "MongoDB 深入浅出", link: "/backEnd/database/mongodb" },
+      ],
+    },
+  ],
+  "/fullStack/": [
+    {
+      text: "项目实战营",
+      link: "/template",
+    },
+    {
+      text: "前后端分离架构精解",
+      link: "/template",
+    },
+    {
+      text: "跨平台开发秘境",
+      items: [
+        {
+          text: "Electron 桌面应用探秘",
+          link: "/fullStack/crossPlatform/electron",
+        },
+        {
+          text: "Flutter 移动开发攻略",
+          link: "/fullStack/crossPlatform/flutter",
+        },
+      ],
+    },
+    {
+      text: "服务端渲染与同构应用揭秘",
+      link: "/template",
+    },
+  ],
 };
 
 export default sidebar;
