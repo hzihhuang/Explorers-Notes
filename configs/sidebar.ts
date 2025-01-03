@@ -55,7 +55,10 @@ const sidebar: Sidebar = {
     {
       text: "Sass 艺术指南",
       collapsed: false,
-      items: [{ text: "Sass：一篇精通", link: "/frontEnd/sass/base" }],
+      items: [
+        { text: "Sass：一篇精通", link: "/frontEnd/sass/base" },
+        { text: "Mixin 艺术", link: "/frontEnd/sass/mixin" },
+      ],
     },
     {
       text: "JavaScript 编程秘籍",
@@ -72,8 +75,9 @@ const sidebar: Sidebar = {
       text: "TypeScript 进阶宝典",
       collapsed: false,
       items: [
-        { text: "TypeScript: 一篇精通", link: "/frontEnd/typescript/base" },
-        { text: "TypeScript: 装饰器", link: "/frontEnd/typescript/decorator" },
+        { text: "一篇精通", link: "/frontEnd/typescript/base" },
+        { text: "装饰器", link: "/frontEnd/typescript/decorator" },
+        { text: "工具类型", link: "/frontEnd/typescript/utility" },
       ],
     },
     {

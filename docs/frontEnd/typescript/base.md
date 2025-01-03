@@ -1,5 +1,5 @@
 ---
-title: TypeScript 基础
+title: 一篇精通
 date: 2022-6-07 12:37:52
 ---
 > 阮一峰更新了 [TypeScript](https://wangdoc.com/typescript/intro) 的教程，内容更全易懂
