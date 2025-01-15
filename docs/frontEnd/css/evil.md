@@ -34,9 +34,9 @@ date: 2024-10-28 12:00:00
 }
 ```
 
-## 强制图片黑白显示
+## 强制黑白显示
 
-利用 filter 将图片强制转换为黑白风格。
+利用 filter 强制转换为黑白风格。
 
 ```css
 .grayscale {
@@ -58,7 +58,22 @@ date: 2024-10-28 12:00:00
 }
 ```
 
-## CSS 控制比例
+## icon 控制颜色
+```css
+.icon {
+  width: 100px;
+  height: 100px;
+  /* 设置 icon 颜色 可以渐变色*/
+  background: linear-gradient(45deg, #3498db, #2ecc71);
+  /* 使用「远程 or 本地」图像作为遮罩 */
+  mask-image: url('xxx.png');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+```
+
+## 控制元素比例
 
 ### padding
 
@@ -92,7 +107,7 @@ date: 2024-10-28 12:00:00
 }
 ```
 
-## 垂直居中
+## 垂直水平居中
 
 ### flexbox
 

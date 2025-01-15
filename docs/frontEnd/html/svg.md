@@ -1,9 +1,9 @@
 ---
-title: SVG 深入浅出
+title: SVG篇
 date: 2022-12-07 18:57:32
 ---
 
-# SVG 深入浅出
+# SVG篇
 
 ## 一、SVG 简介
 

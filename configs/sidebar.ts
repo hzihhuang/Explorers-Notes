@@ -39,7 +39,10 @@ const sidebar: Sidebar = {
     {
       text: "HTML 修炼手册",
       collapsed: false,
-      items: [{ text: "svg 深入浅出", link: "/frontEnd/html/svg" }],
+      items: [
+        { text: "SVG篇", link: "/frontEnd/html/svg" },
+        { text: "属性篇", link: "/frontEnd/html/attribute" }
+      ],
     },
     {
       text: "CSS 技术宝典",
@@ -49,7 +52,6 @@ const sidebar: Sidebar = {
         { text: "container 容器查询", link: "/frontEnd/css/container" },
         { text: "masonry 瀑布流布局", link: "/frontEnd/css/masonry" },
         { text: "counter 计数器", link: "/frontEnd/css/counter" },
-        { text: "clip-path 裁剪路径", link: "/frontEnd/css/clip-path" },
       ],
     },
     {
