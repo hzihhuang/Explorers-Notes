@@ -177,3 +177,32 @@ $utility-classes: (
 }
 ```
 
+## 固定元素比例
+```scss
+@mixin aspect-ratio($width, $height) {
+  // 使用 @supports 检测浏览器是否支持 aspect-ratio
+  @supports (aspect-ratio: 1) {
+    aspect-ratio: $width / $height;
+  }
+  @supports not (aspect-ratio: 1) {
+    position: relative;
+    
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-top: ($height / $width) * 100%; // 高度按比例计算
+    }
+    
+    & > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+```
