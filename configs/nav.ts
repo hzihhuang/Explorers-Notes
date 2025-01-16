@@ -39,32 +39,42 @@ const nav: NavType = [
     text: "前端探索集",
     items: [
       {
-        text: "HTML 修炼手册",
+        text: "HTML 探索指南",
         link: "/frontEnd/html/tag",
         activeMatch: "/frontEnd/html",
       },
       {
-        text: "CSS 技巧宝典",
+        text: "CSS 魔法手册",
         link: "/frontEnd/css/evil",
         activeMatch: "/frontEnd/css",
       },
       {
-        text: "Sass 艺术指南",
+        text: "Sass 技艺探秘",
         link: "/frontEnd/sass/base",
         activeMatch: "/frontEnd/sass",
       },
       {
-        text: "JavaScript 编程秘籍",
+        text: "JavaScript 深入探险",
         link: "/frontEnd/javascript/IndexedDB",
         activeMatch: "/frontEnd/javascript",
       },
       {
-        text: "TypeScript 进阶宝典",
+        text: "TypeScript 高阶探索",
         link: "/frontEnd/typescript/base",
         activeMatch: "/frontEnd/typescript",
       },
       {
-        text: "Web 性能优化攻略",
+        text: "Vue 编程探索",
+        link: "/frontEnd/vue",
+        activeMatch: "/frontEnd/vue",
+      },
+      {
+        text: "React 技术之旅",
+        link: "/frontEnd/react",
+        activeMatch: "/frontEnd/react",
+      },
+      {
+        text: "Web 性能提升秘笈",
         link: "/frontEnd/web/frontEnd",
         activeMatch: "/frontEnd/web",
       },

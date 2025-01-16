@@ -37,7 +37,7 @@ interface Sidebar {
 const sidebar: Sidebar = {
   "/frontEnd/": [
     {
-      text: "HTML 修炼手册",
+      text: "HTML 探索指南",
       collapsed: false,
       items: [
         {text: '标签篇', link: '/frontEnd/html/tag'},
@@ -46,25 +46,25 @@ const sidebar: Sidebar = {
       ],
     },
     {
-      text: "CSS 技术宝典",
+      text: "CSS 魔法手册",
       collapsed: false,
       items: [
-        { text: "css 邪门左道", link: "/frontEnd/css/evil" },
-        { text: "container 容器查询", link: "/frontEnd/css/container" },
-        { text: "masonry 瀑布流布局", link: "/frontEnd/css/masonry" },
-        { text: "counter 计数器", link: "/frontEnd/css/counter" },
+        { text: "技巧篇", link: "/frontEnd/css/evil" },
+        { text: "容器查询", link: "/frontEnd/css/container" },
+        { text: "瀑布流布局", link: "/frontEnd/css/masonry" },
+        { text: "计数器", link: "/frontEnd/css/counter" },
       ],
     },
     {
-      text: "Sass 艺术指南",
+      text: "Sass 技艺探秘",
       collapsed: false,
       items: [
-        { text: "Sass：一篇精通", link: "/frontEnd/sass/base" },
-        { text: "Mixin 艺术", link: "/frontEnd/sass/mixin" },
+        { text: "一篇精通", link: "/frontEnd/sass/base" },
+        { text: "Mixin篇", link: "/frontEnd/sass/mixin" },
       ],
     },
     {
-      text: "JavaScript 编程秘籍",
+      text: "JavaScript 深入探险",
       collapsed: false,
       items: [
         { text: "IndexedDB 数据库", link: "/frontEnd/javascript/IndexedDB" },
@@ -75,7 +75,7 @@ const sidebar: Sidebar = {
       ],
     },
     {
-      text: "TypeScript 进阶宝典",
+      text: "TypeScript 高阶探索",
       collapsed: false,
       items: [
         { text: "一篇精通", link: "/frontEnd/typescript/base" },
@@ -84,11 +84,21 @@ const sidebar: Sidebar = {
       ],
     },
     {
-      text: "Web 性能优化攻略",
+      text: 'Vue 编程探索',
+      collapsed: false,
+      items: [],
+    },
+    {
+      text: 'React 技术之旅',
+      collapsed: false,
+      items: [],
+    },
+    {
+      text: "Web 性能提升秘笈",
       collapsed: false,
       items: [
         { text: "前端优化", link: "/frontEnd/web/frontEnd" },
-        { text: "前端框架性能优化", link: "/frontEnd/web/frontEndFrame" },
+        { text: "框架优化", link: "/frontEnd/web/frontEndFrame" },
       ],
     },
   ],
