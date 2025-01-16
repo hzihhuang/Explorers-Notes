@@ -40,8 +40,9 @@ const sidebar: Sidebar = {
       text: "HTML 修炼手册",
       collapsed: false,
       items: [
+        { text: "属性篇", link: "/frontEnd/html/attribute" },
+        {text: '标签篇', link: '/frontEnd/html/tag'},
         { text: "SVG篇", link: "/frontEnd/html/svg" },
-        { text: "属性篇", link: "/frontEnd/html/attribute" }
       ],
     },
     {
