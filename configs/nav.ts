@@ -40,7 +40,7 @@ const nav: NavType = [
     items: [
       {
         text: "HTML 修炼手册",
-        link: "/frontEnd/html/svg",
+        link: "/frontEnd/html/tag",
         activeMatch: "/frontEnd/html",
       },
       {
